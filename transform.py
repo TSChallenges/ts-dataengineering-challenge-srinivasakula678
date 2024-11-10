@@ -14,7 +14,8 @@ def handle_missing_values(df):
     - pd.DataFrame: Cleaned data.
     """
     #TODO
-     return df
+    df_cleaned = df.dropna()
+    return df_cleaned
 
 def normalize_data(df, numerical_cols):
     """
@@ -28,6 +29,8 @@ def normalize_data(df, numerical_cols):
     - pd.DataFrame: Data with normalized columns.
     """
    #TODO
+    scaler = MinMaxScaler()
+    df[numerical_cols] = scaler.fit_transform(df[numerical_cols])
     return df
 
 def transform_data(df):
